@@ -1,7 +1,7 @@
 # airbus-ship-detection
 https://www.kaggle.com/competitions/airbus-ship-detection/overview
 
-Task was solved in colab, all blocks are here: 
+Task was solved in colab, easy to test here: 
 https://colab.research.google.com/drive/1kKh8gFHYckXl4tHxKqgwoAgk6Y5-mPv4?usp=sharing
 
 # Features
@@ -38,7 +38,7 @@ https://arxiv.org/abs/2004.01461
 - airbus_model.h5 - trained model
 - submission.csv - civ file for gaggle competition (private 0.77330, public 0.58010)
 - Kaggle_airbus_ship_detection.ipynb - copy of colab (Jupyter) notebook: https://colab.research.google.com/drive/1kKh8gFHYckXl4tHxKqgwoAgk6Y5-mPv4?usp=sharing
-- train_masks.zip - archive files 
+- train_masks.zip - archive png-files with masks
 - requirements.txt (used pip freeze > requirements.txt in colab)
 
 # What to do for best score
