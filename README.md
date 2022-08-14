@@ -39,7 +39,7 @@ airbus_model.h5 - trained model
 submission.csv - civ file for gaggle competition (private 0.77330, public 0.58010)
 Kaggle_airbus_ship_detection.ipynb - copy of colab (Jupiter) notebook: https://colab.research.google.com/drive/1kKh8gFHYckXl4tHxKqgwoAgk6Y5-mPv4?usp=sharing
 
-What to do for best score
+### What to do for best score
 - try to change brightness-contrast augmentation
 - different weights in loss weighted_binary_crossentropy
 - different threshold in predict
