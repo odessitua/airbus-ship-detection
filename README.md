@@ -41,7 +41,7 @@ https://arxiv.org/abs/2004.01461
 - train_masks.zip - archive png-files with masks
 - requirements.txt (used pip freeze > requirements.txt in colab)
 
-#Results 
+# Results 
 I get a good score in first try.
 
 ### What to do for best score
