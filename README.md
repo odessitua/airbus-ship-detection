@@ -50,5 +50,9 @@ I get a good score in first try.
 - different threshold in predict
 - try different learning rate with reduce
 - try different count of epoch without checkpoints (save weights in each epoch and check them)
+- check with other NN, for example U-Net
+
+If I have time as challenge going I do this all and more when I'll see reults
+
 
 
