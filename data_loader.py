@@ -2,7 +2,7 @@
 # Put kaggle.json to C:\Users\<Windows-username>\.kaggle\kaggle.json
 # or ~/.kaggle/kaggle.json for unix system
 
-!pip install kaggle
+#!pip install kaggle
 # !mkdir -p ~/.kaggle
 # !cp {path_kaggle_json} ~/.kaggle/
 # !chmod 600 ~/.kaggle/kaggle.json

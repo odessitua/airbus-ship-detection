@@ -8,7 +8,6 @@ from tqdm import tqdm
 
 import matplotlib.pyplot as plt
 import os, glob
-import math
 
 target_size = [256, 256] # size of image for model
 shuffle_buffer = 32 

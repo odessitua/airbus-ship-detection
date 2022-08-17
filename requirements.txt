@@ -171,7 +171,7 @@ jupyter-console==5.2.0
 jupyter-core==4.11.1
 jupyterlab-pygments==0.2.2
 jupyterlab-widgets==1.1.1
-kaggle==1.5.12
+
 kapre==0.3.7
 keras==2.8.0
 Keras-Preprocessing==1.1.2
