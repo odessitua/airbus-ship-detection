@@ -20,7 +20,7 @@ test_dir = 'test_v2' # folder with test image
 
 model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'airbus_model.h5'))
 
-def predict_mask(img, threshold = 0.5, pred_size = 256):
+def get_predict_mask(img, threshold = 0.5, pred_size = 256):
     """
     Predict mask
     img - input image (array)
@@ -36,25 +36,31 @@ def predict_mask(img, threshold = 0.5, pred_size = 256):
 
     patch = np.zeros((pred_size, pred_size, 3))
 
+    stack_parts = []
     # Pass through the analyzed image, pulling out sections of pred_size in size
     for i in range(0, img.shape[0], pred_size):
         for j in range(0, img.shape[1], pred_size):
-                patch_img = img[i:i+pred_size, j:j+pred_size]
-                patch = np.zeros((pred_size, pred_size, 3))
-                patch[:patch_img.shape[0], :patch_img.shape[1]] = patch_img
-                
-                # predict mask
-                pred = model.predict(np.expand_dims((patch / 127.5 -1), 0))
+            patch_img = img[i:i+pred_size, j:j+pred_size]
+            patch = np.zeros((pred_size, pred_size, 3))
+            patch[:patch_img.shape[0], :patch_img.shape[1]] = patch_img
 
-                #Use threshold
-                pred[pred>=threshold] = 1
-                pred[pred<threshold] = 0
-                
-                full_mask[i:i+pred_size, j:j+pred_size] = np.squeeze(pred)
+            stack_parts.append(patch / 127.5 - 1)
 
-    # Обрезаем лишнее по размеру картинки
+    # predict mask
+    pred = model.predict(np.array(stack_parts))
+    #Use threshold
+    pred[pred>=threshold] = 1
+    pred[pred<threshold] = 0
+
+    for k in range(pred.shape[0]):
+        i = k//mask_parts[0]*pred_size
+        j = k%mask_parts[1]*pred_size
+        full_mask[i:i+pred_size, j:j+pred_size] = np.squeeze(pred[k])
+
+    # Crop the mask to fit the image
     full_mask = full_mask[:img.shape[0], :img.shape[1]]
     return full_mask
+
 
 def decode_mask(mask, shape=(768, 768)):
     #from image(mask) to run-length encoding
@@ -70,7 +76,7 @@ ship_list_dict = []
     
 for name in tqdm(test_data):
     img = plt.imread(os.path.join(test_dir, name))
-    predict_mask = predict_mask(img,0.5)
+    predict_mask = get_predict_mask(img,0.5)
     decode = decode_mask(predict_mask)
     ship_list_dict.append({'ImageId':name,'EncodedPixels':decode})
 
