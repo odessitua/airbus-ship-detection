@@ -41,7 +41,10 @@ https://arxiv.org/abs/2004.01461
 - train_masks.zip - archive png-files with masks
 - requirements.txt (used pip freeze > requirements.txt in colab)
 
-# What to do for best score
+#Results 
+I get a good score in first try.
+
+### What to do for best score
 - try to change brightness-contrast augmentation
 - different weights in loss weighted_binary_crossentropy
 - different threshold in predict
