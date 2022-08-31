@@ -35,6 +35,7 @@ https://arxiv.org/abs/2004.01461
 - create_masks.py - (optional) Generate png masks from csv, need train_v2, train_ship_segmentations_v2.csv
 - train.py - Create and train model, output airbus_model.h5
 - predict.py - Predict masks, output submission.csv
+- fast_predict.py - Predict masks version 3, using batchs, output submission.csv
 - airbus_model.h5 - trained model
 - submission.csv - civ file for gaggle competition (private 0.77330, public 0.58010)
 - Kaggle_airbus_ship_detection.ipynb - copy of colab (Jupyter) notebook: https://colab.research.google.com/drive/1kKh8gFHYckXl4tHxKqgwoAgk6Y5-mPv4?usp=sharing
@@ -52,7 +53,7 @@ I get a good score in first try.
 - try different count of epoch without checkpoints (save weights in each epoch and check them)
 - check with other NN, for example U-Net
 
-If I have time as challenge going I do this all and more when I'll see reults
+If I have time as challenge going I do this all and more when I'll see results
 
 
 
